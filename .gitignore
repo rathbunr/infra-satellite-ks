@@ -1,0 +1,31 @@
+# Secrets and environment-specific configuration — never commit
+**/vault*.yml
+**/vault*.yaml
+**/*vault*
+**/secrets/
+group_vars/provisioner/*
+!group_vars/provisioner/.gitkeep
+!samples/group_vars/provisioner/
+
+# Ansible
+*.retry
+.ansible/
+
+# Editor / OS noise
+*~
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
+
+# Python / virtualenv (if local tooling is added later)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated artifacts
+*.iso
+ks.cfg
+OEMDRV/

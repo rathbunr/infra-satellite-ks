@@ -1,0 +1,15 @@
+---
+# Minimal vault variables required for a *connected* Satellite kickstart.
+# Copy to a secure location outside the git tree, populate, then:
+#   ansible-vault encrypt /path/to/secure/vault/rhis_builder_vault.yml
+#
+# For disconnected hosts (disconnected: true) the two CDN variables
+# are not referenced and may be omitted.
+
+encrypted_root_pass_vault: ""          # openssl passwd -6 (interactive)
+encrypted_grub_pass_vault: ""          # grub2-mkpasswd-pbkdf2
+encrypted_user_pass_vault: ""          # openssl passwd -6 (interactive)
+user_sudoer_policy_vault: "ansiblerunner ALL=(ALL) NOPASSWD: ALL"
+ssh_pub_key_vault: ""                  # contents of ~/.ssh/id_ed25519.pub (or equivalent)
+cdn_organization_vault: ""             # Red Hat CDN organization ID
+cdn_activation_key_vault: ""           # Activation key name for RHEL 9 minimal
