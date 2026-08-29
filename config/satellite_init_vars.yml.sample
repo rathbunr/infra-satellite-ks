@@ -1,0 +1,35 @@
+---
+bootstrap_init_ks_path: "ks.cfg"
+bootstrap_init_oem_dir: "/mnt/OEMDRV"
+bootstrap_init_iso_dir: "/mnt/OEMDRV/ISO"
+bootstrap_init_hosts:
+  - rhis_role: "satellite"
+    hostname: "CHANGEME"
+    domain: "CHANGEME"
+    mac: "CHANGEME"
+    ipv4_address: "CHANGEME"
+    ipv4_netmask: "CHANGEME"
+    ipv4_prefix: CHANGEME
+    ipv4_gateway: "CHANGEME"
+    name_server1: "CHANGEME"
+    name_server2: "CHANGEME"
+    root_enc_pass: "{{ encrypted_root_pass_vault }}"
+    grub_enc_pass: "{{ encrypted_grub_pass_vault }}"
+    boot_disk: "CHANGEME"
+    root_disk: "CHANGEME"
+    boot_mb: 1024
+    boot_efi_mb: 2048
+    lv_root_mb: 65536
+    lv_home_mb: 20480
+    lv_tmp_mb: 6144
+    lv_var_tmp_mb: 6144
+    lv_var_log_mb: 6144
+    lv_var_log_audit_mb: 6144
+    lv_var_mb: 1
+    username: "ansiblerunner"
+    user_enc_pass: "{{ encrypted_user_pass_vault }}"
+    user_sudoer_policy: "{{ user_sudoer_policy_vault }}"
+    ssh_pub_key: "{{ ssh_pub_key_vault }}"
+    org: "{{ cdn_organization_vault }}"
+    activation_key: "{{ cdn_activation_key_vault }}"
+    generate_oemdrv_iso: false

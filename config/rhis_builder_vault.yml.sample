@@ -1,0 +1,11 @@
+---
+# openssl passwd -6
+encrypted_root_pass_vault: "CHANGEME"
+# grub2-mkpasswd-pbkdf2
+encrypted_grub_pass_vault: "CHANGEME"
+# openssl passwd -6
+encrypted_user_pass_vault: "CHANGEME"
+user_sudoer_policy_vault: "ansiblerunner ALL=(ALL) NOPASSWD: ALL"
+ssh_pub_key_vault: "CHANGEME"
+cdn_organization_vault: "CHANGEME"
+cdn_activation_key_vault: "CHANGEME"
