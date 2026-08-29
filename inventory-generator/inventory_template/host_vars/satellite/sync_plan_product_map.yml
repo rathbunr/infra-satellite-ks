@@ -1,0 +1,92 @@
+---
+
+# Maps our product into our sync plans
+# NOTE - the file is named the other way around so you see it in the list and don't forget about it!
+
+product_plans:
+
+# Red Hat Products (A→Z)
+
+  - name: "JBoss Enterprise Application Platform"
+    plan: "nightly_infra"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Red Hat Ansible Automation Platform"
+    plan: "nightly_infra"
+    organization: "{{ satellite_organization }}"
+
+  # - name: "Red Hat Ansible Engine"
+  #   plan: "nightly_infra"
+  #   organization: "{{ satellite_organization }}"
+  # Deprecated — replaced by AAP
+
+  - name: "Red Hat Client Tools for RHEL"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Red Hat Enterprise Linux Bootc Containers"
+    plan: "nightly_infra"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Red Hat Enterprise Linux for ARM 64"
+    plan: "nightly_os"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Red Hat Enterprise Linux for x86_64"
+    plan: "nightly_os"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Red Hat Enterprise Linux High Availability for x86_64"
+    plan: "nightly_os"
+    organization: "{{ satellite_organization }}"
+
+  # - name: "Red Hat Enterprise Linux Server"
+  #   plan: "nightly_os"
+  #   organization: "{{ satellite_organization }}"
+  # Deprecated — RHEL 7 EOL
+
+  # - name: "Red Hat Enterprise Linux Server - Extended Life Cycle Support"
+  #   plan: "nightly_os"
+  #   organization: "{{ satellite_organization }}"
+  # Deprecated — RHEL 7 ELS EOL
+
+  - name: "Red Hat Satellite Capsule"
+    plan: "nightly_infra"
+    organization: "{{ satellite_organization }}"
+
+
+# Third Party Products (A→Z, newest release first)
+
+  - name: "CentOS Stream 9"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  - name: "CentOS Stream 8"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  # - name: "CentOS79"
+  #   plan: "nightly_third_party"
+  #   organization: "{{ satellite_organization }}"
+  # Deprecated — CentOS 7 EOL
+
+  - name: "EPEL9"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  - name: "EPEL8"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Microsoft SQL Server for Linux 2022 for RHEL 9"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  - name: "Microsoft SQL Server for Linux 2022 for RHEL 8"
+    plan: "nightly_third_party"
+    organization: "{{ satellite_organization }}"
+
+  # - name: "OEL79"
+  #   plan: "nightly_third_party"
+  #   organization: "{{ satellite_organization }}"
+  # Deprecated — OEL 7 EOL
