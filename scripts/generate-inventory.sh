@@ -10,15 +10,23 @@ DOMAIN="${DOMAIN:?DOMAIN must be set}"
 BASEVARS_NAME="${DOMAIN}_inventory_basevars.yml"
 BASEVARS_PATH="${REPO_ROOT}/inventory-generator/${BASEVARS_NAME}"
 if [[ ! -f "${BASEVARS_PATH}" ]]; then echo "ERROR: ${BASEVARS_PATH} not found" >&2; exit 1; fi
-if [[ ! -f inventory-generator/inventory_update.yml ]]; then
-  echo "ERROR: inventory engine not vendored yet. Expand vendor/vendor-inventory-generator.tar.gz into inventory-generator/" >&2
+if [[ ! -f inventory-generator/inventory_update.sh ]]; then
+  echo "ERROR: inventory engine not vendored. See README for setup." >&2
+  exit 1
+fi
+if [[ ! -d inventory-generator/inventory_template ]]; then
+  echo "ERROR: inventory_template/ directory missing from inventory-generator/" >&2
   exit 1
 fi
 cd "${REPO_ROOT}/inventory-generator"
 echo "==> Generating deployment inventory for ${DOMAIN}"
-if command -v ansible-playbook >/dev/null 2>&1; then
-  ansible-playbook -e "basevars_file=${BASEVARS_NAME}" inventory_update.yml
+./inventory_update.sh -b "${BASEVARS_NAME}"
+
+DEPLOY_DIR="deployments/${DOMAIN}"
+if [[ -d "${DEPLOY_DIR}" ]]; then
+  echo "==> Deployment generated at: inventory-generator/${DEPLOY_DIR}"
+  ls -1 "${DEPLOY_DIR}/"
 else
-  ./inventory_update.sh -b "${BASEVARS_NAME}"
+  echo "WARNING: Expected deployment directory not found at ${DEPLOY_DIR}"
+  echo "Check inventory_update.sh output above for errors."
 fi
-ls -la deployments/ 2>/dev/null || true
