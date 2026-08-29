@@ -1,0 +1,3 @@
+# Minimal inventory for local kickstart generation.
+[provisioner]
+localhost ansible_connection=local
